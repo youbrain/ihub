@@ -1,0 +1,373 @@
+/*----------------------------------------------------------------- nav start*/
+
+.navbar {
+    font-family: 'Montserrat', sans-serif;
+	padding: 20px 100px 0 100px;
+	width: 100%;
+	/*background: none;*/
+	position: absolute;
+	z-index: 1;
+}
+
+.nav-item a {
+	font-weight: 600;
+	color: #efc5c8;
+	font-size: 20px;
+	margin-right: 35px
+}
+
+.nav-item a:hover {
+	color: white;
+}
+/*
+.fa.fa-navicon {
+  color:white;
+}*/
+
+
+/*
+todo
+кастомная иконка меню + аним
+*/
+/*----------------------------------------------------------------- nav end*/
+
+
+
+/*----------------------------------------------------------------- first screen start*/
+
+#first_screen {
+	/*position: relative;*/
+	text-align: center;
+	color: white;
+	background-image: url("img/red.jpg");
+	height: 100vh;
+	width: 100%; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#f_screen_logo {
+	padding: 80px 10px 0 10px;
+	position: absolute;
+	width: 650px;
+	max-width: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#first_screen .shape1 {
+	position: absolute;
+	max-width: 100%;
+	left: 0;
+	padding: 20px 100px 0 100px;
+	top: 100px;
+}
+
+#first_screen .shape2 {
+	position: absolute;
+	right: 0;
+	max-width: 100%;
+	padding: 20px 100px 0 100px;
+	bottom: 50px
+}
+
+.scroll-down {
+    height: 45px;
+    width: 30px;
+    border: 3px solid white;
+    position: absolute;
+    left: 49%;
+    bottom: 15px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.scroll-down::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    height: 8px;
+    width: 3px;
+    transform: translate(-50%, -100%) rotate(180deg);
+    background-color: white;
+    border-radius: 20px;
+    animation: scroll-down 3s ease-in-out infinite;
+    animation-direction: alternate-reverse;
+}
+
+.scroll-down::before {
+    top: 30%;
+    animation-delay: 0.3s;
+    /* animation: scroll-down 1s ease-in-out infinite; */
+}
+
+@keyframes scroll-down {
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 90%;
+        opacity: 1;
+    }
+}
+
+/*дерганая анимация мышки*/
+/*----------------------------------------------------------------- first screen end*/
+
+
+/*----------------------------------------------------------------- slider події*/
+.slider .photo {
+	border-radius: 5px;
+}
+
+.date, .comments{
+	font-family: 'Montserrat';
+	font-weight: bold;
+	padding-right: 20px
+}
+.slider i {
+	color: red;
+	padding-right: 5px
+}
+
+
+
+.carousel-control-next img {
+	position: absolute;
+	height: 30px;
+	right: -45px;
+}
+
+
+
+.carousel-control-prev img {
+	position: absolute;
+	height: 30px;
+	left: -45px;
+}
+
+/*----------------------------------------------------------------- slider події end*/
+
+
+
+#partners {
+	
+    overflow: hidden;
+    display: flex;
+    /*width: calc(250px * 14);*/
+}
+
+#partners img {
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#partners_slider {
+    animation: scroll 40s linear infinite;
+    display: flex;
+}
+
+
+/*----------------------------------------------------------------- team carousel */
+/*.team-carousel img {
+	height: 80%;
+}
+.team-carousel .center img {
+	height: 120%;
+}*/
+.team-part .name {
+    font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+.team-part .position {
+
+    font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	text-align: center;
+}
+.team-part .about {
+	text-align: center;
+
+}
+.team-part {
+	margin: 0 20px 0 20px;
+}
+.team-part .social img {
+	display: inline !important;
+	width: 30px !important;
+	height: 30px !important;
+}
+
+
+.team-carousel .owl-stage .photo {
+	width: 80%;
+	padding-left: 20%;
+}
+.team-carousel .owl-stage .center .photo {
+	padding-left: 0 !important;
+	width: 100%;
+}
+
+
+/*----------------------------------------------------------------- team carousel end */
+/*----------------------------------------------------------------- global css */
+h2 {
+	text-align: center;
+	font-size: 35px;
+	font-weight: bold;
+}
+section {
+	padding: 40px 0 40px 0;
+}
+/*----------------------------------------------------------------- end global css */
+
+
+
+
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 7));
+    }
+}
+
+
+
+
+#reviews img {
+	display: inline;
+	height: 45px;
+	width: 45px;
+}
+#reviews .author {
+	display: inline;
+}
+
+#reviews .item {
+	margin: 70px 50px 70px 50px;
+	padding: 30px;
+ 	border-radius: 10px;
+	z-index: 1000;
+ 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+}
+
+#reviews .owl-stage .owl-item{
+	opacity: 0.5;
+	/*font-size: 15px*/
+}
+#reviews .owl-stage .center {
+	opacity: 1 !important;
+	font-size: 18px
+
+}
+
+.reviews-carousel {
+	/*: 50px 50px 50px 50px;*/
+	padding-right: 20px;
+	/*position: absolute;*/
+	left: -25%;
+	overflow: hidden !important;
+	width: 150% !important;
+}
+
+#reviews {
+	background-image: url('img/123.png');
+	background-repeat: no-repeat;
+	background-position: 20px 50px;
+	background-size: 200px;
+	margin-top: 50px;
+	overflow: hidden !important;
+}
+
+#reviews .owl-dots .owl-dot.active span,
+#reviews .owl-dots .owl-dot:hover span {
+	background: red !important;
+}
+#contacts .info {
+	padding: 20px;
+	background-image: url('img/cart-1.png');
+	background-size: cover;
+}
+
+
+#contacts .block {
+	padding: 40px 0 40px;
+}
+
+#contacts span {
+	font-weight: lighter;
+}
+
+footer {
+	background-color: #FF0B2E;
+    font-family: 'Montserrat', sans-serif;
+
+	padding: 30px 100px 20px 100px;
+	font-weight: bold;
+	/*height: 150px;*/
+}
+
+a:hover {
+	text-decoration: none;
+	color: white;
+}
+footer .underline a {
+	color: white;
+	border-bottom: 2px solid white;
+}
+
+
+
+/*----------------------------------------------------------------- media */
+
+@media screen and (max-width: 991px) {
+	.navbar {
+		background-color: rgba(192, 47, 54, 0.95);
+		padding: 10px 20px 10px 20px;
+	}
+	.nav-link {
+		float: right;
+	}
+	#f_screen_logo {
+		padding: 0 20px 0 20px;
+	}
+	.shape1, .shape2 {
+		display: none
+	}
+}
+@media screen and (max-width: 800px) {
+	.reviews-carousel {
+		width: 100% !important;
+		left: 0%;
+	}
+	.reviews-carousel .item {
+		margin: 30px 20px 35px 20px !important;
+	}
+	#reviews {
+		background-size: 150px;
+	}
+}
+/*----------------------------------------------------------------- end media */
