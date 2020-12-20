@@ -34,7 +34,6 @@ def dashboard():
     return render_template('dashboard.html')
 
 
-
 @app.route('/change_cookie/', methods=['POST'])
 def change_cookie():
     cookie = request.form['change_cookie'].split(':')
@@ -43,22 +42,14 @@ def change_cookie():
     return res
 
 
-
-@app.route('/dashboard/', methods=['get'])
-def dashboard():
-    if not request.cookies.get('session') == 'sucs':
-        return redirect(url_for('login'))
-
-    return render_template('dashboard.html')
-
-
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
+@app.route('/calendar/')
+def calendar():
+    return render_template('calendar.html')
 
 
 if __name__ == '__main__':
