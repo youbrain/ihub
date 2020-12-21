@@ -1,1 +1,4 @@
 ihub-216c077d43d5.json
+uploads/*
+__pycache__
+*.sqlite
