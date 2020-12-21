@@ -78,7 +78,7 @@ function addEvents(events) {
         let $ = se => document.querySelector(`#alert > .block ${se}`);
         $(".type").innerHTML = event.type;
         $(".topic").innerHTML = event.topic;
-        if (event.imageURL) $("img").setAttribute("src", `./assets/images/events/${event.imageURL}.JPG`);
+        if (event.imageURL) $("img").setAttribute("src", `${event.imageURL}`);
         else $("img").setAttribute("src", "#");
         $(".description p").innerHTML = event.description;
         $(".description").classList.remove("show");

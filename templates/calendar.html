@@ -112,6 +112,12 @@
         </div>
         <input id="link" style="opacity: 0; position: absolute; bottom: 100%;" />
         <script src="/static/events.js"></script>
+        <script type="text/javascript">
+            {% for item in ivents %}
+                new Event("{{ item.time.strftime('%d-%m-%Y %H:%M')}}", "{{ item.title }}", "{{ item.title }}", "{{ item.title }}", 0, `{{ item.description }}`, "/{{ item.img_path }}");
+            {% endfor %}
+
+        </script>
         <script src="/static/calendar.js"></script>
     </body>
 </html>
