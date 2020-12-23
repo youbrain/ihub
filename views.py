@@ -21,13 +21,13 @@ def login():
         username = request.form.get('username')
         password = request.form.get('password')
 
-        if username == 'root' and password == 'pass':
+        if username == 'root' and password == 'ihubadmin':
             login_hash = 'sucs'
             res = make_response(redirect(url_for('dashboard')))
-            res.set_cookie('session', login_hash)
+            res.set_cookie('session_', login_hash)
             return res
 
-        message = "Wrong username or password"
+        message = "Помилка входу"
 
     res = make_response(render_template(
         'dashboard/login.html', message=message))
@@ -37,7 +37,7 @@ def login():
 
 @app.route('/dashboard/', methods=['get'])
 def dashboard():
-    if not request.cookies.get('session') == 'sucs':
+    if not request.cookies.get('session_') == 'sucs':
         return redirect(url_for('login'))
 
     return render_template('dashboard/index.html')
@@ -45,28 +45,34 @@ def dashboard():
 
 @app.route('/add_event/', methods=['get', 'post'])
 def add_event():
-    if request.method == 'GET':
-        if not request.cookies.get('session') == 'sucs':
-            return redirect(url_for('login'))
+    if not request.cookies.get('session_') == 'sucs':
+        return redirect(url_for('login'))
 
     form = AddEventForm()
     if form.validate_on_submit():
-        # if f.filename
-        f = form.photo.data
-        filename = secure_filename(f.filename)
-        f.save('uploads/' + filename)
-        # date = [int(a) for a in form.time.data.split('-')][-1]
-        query = Events(
-            type=form.type.data,
-            img_path='uploads/' + filename,
-            time=datetime.strptime(
-                form.time.data, '%d-%m-%Y %H:%M'),  # datetime(*date),
-            title=form.title.data,
-            description=form.description.data,
-        )
-        db.session.add(query)
-        db.session.commit()
+        # print('\n\n\n')
+        try:
+            # if f.filename
+            f = form.photo.data
+            filename = secure_filename(f.filename)
+            f.save('uploads/' + filename)
+            # date = [int(a) for a in form.time.data.split('-')][-1]
+            query = Events(
+                type=form.type.data,
+                img_path='uploads/' + filename,
+                time=datetime.strptime(
+                    form.time.data, '%d-%m-%Y %H:%M'),  # datetime(*date),
+                title=form.title.data,
+                description=form.description.data,
+            )
+            db.session.add(query)
+            db.session.commit()
 
+            return render_template('dashboard/add_event.html', form=form, message=[1, 'Подія додана!'])
+        except:
+            return render_template('dashboard/add_event.html', form=form, message=[0, 'Помилка'])
+
+    # print('\n\n\n')
     return render_template('dashboard/add_event.html', form=form)
 
 
@@ -75,6 +81,13 @@ def change_cookie():
     cookie = request.form['change_cookie'].split(':')
     res = make_response(redirect('/dashboard'))
     res.set_cookie(*cookie)
+    return res
+
+
+@app.route('/logout/', methods=['get'])
+def logout():
+    res = make_response(redirect(url_for('index')))
+    res.set_cookie('session_', '')
     return res
 
 

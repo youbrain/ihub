@@ -5,14 +5,14 @@ from flask_wtf.file import FileField, FileRequired, FileAllowed
 
 
 class AddEventForm(FlaskForm):
-    type = StringField("type: ", validators=[DataRequired()])
+    type = StringField("Тип заходу (воркшоп, хакатон, лекція): ", validators=[DataRequired()])
 
-    photo = FileField(validators=[
+    photo = FileField('Фото: ' ,validators=[
         FileRequired(),
-        FileAllowed(['jpg', 'png'], 'Images only!')
+        FileAllowed(['jpg', 'png'], "Тільки 'jpg', 'png' розширення")
     ])
-    time = StringField("time: ", validators=[DataRequired()])
-    title = StringField("title: ", validators=[DataRequired()])
-    description = TextAreaField("description: ", validators=[DataRequired()])
+    time = StringField("Дата початоку (08-07-2002 16:00): ", validators=[DataRequired()])
+    title = StringField("Заголовок: ", validators=[DataRequired()])
+    description = TextAreaField("Опис: ", validators=[DataRequired()])
 
-    submit = SubmitField("submit")
+    submit = SubmitField("Додати івент")
