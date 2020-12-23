@@ -1,5 +1,7 @@
 import requests
 import json
+from app import db
+from models import *
 
 
 cookies = {
@@ -40,15 +42,26 @@ if __name__ == '__main__':
     posts = parser.get_tagged_posts(hub_id)
 
     for post in posts:
+        query = InstaPosts(
+            post_link='https://www.instagram.com/p/' +
+            post['node']['shortcode'],
+            img_link=post['node']['display_url'],
+            owner_username=post['node']['owner']['username'],
+            description=post['node']['edge_media_to_caption']['edges'][0]['node']['text'],
+            cooments_count=post['node']['edge_media_to_comment']['count'],
+            likes_count=post['node']['edge_liked_by']['count'],
+        )
+        db.session.add(query)
+        db.session.commit()
 
-    print(
-        'https://www.instagram.com/p/' +
-        posts[0]['node']['shortcode'],      # link
-        posts[0]['node']['taken_at_timestamp'],  # published time
-        posts[0]['node']['owner']['username'],  # owner username
-        # description
-        posts[0]['node']['edge_media_to_caption']['edges'][0]['node']['text'],
-        posts[0]['node']['display_url'],  # photo link
-        posts[0]['node']['edge_media_to_comment']['count'],  # cooments count
-        posts[0]['node']['edge_liked_by']['count'],  # likes count
-    )
+    # print(
+    #     'https://www.instagram.com/p/' +
+    #     posts[0]['node']['shortcode'],      # link
+    #     posts[0]['node']['taken_at_timestamp'],  # published time
+    #     posts[0]['node']['owner']['username'],  # owner username
+    #     # description
+    #     posts[0]['node']['edge_media_to_caption']['edges'][0]['node']['text'],
+    #     posts[0]['node']['display_url'],  # photo link
+    #     posts[0]['node']['edge_media_to_comment']['count'],  # cooments count
+    #     posts[0]['node']['edge_liked_by']['count'],  # likes count
+    # )

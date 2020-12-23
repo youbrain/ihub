@@ -1,9 +1,17 @@
 $(document).ready(function(){
+	const date = new Date().getDate();
+	document.querySelector("a.calendar span").innerHTML = (date + []).length == 1 ? `0${date}` : date;
+
+	let year = (new Date()).getFullYear();
+	if (+year > 2020) document.querySelector(".footer__2020").innerHTML = `2020-${year}`;
+	
 	$('.reviews-carousel').owlCarousel({
 	    center:true,
 	    items:6,
+	    autoplayHoverPause:true,
 	    dots:true,
 	    loop:true,
+	    // animateOut: 'fadeOut',
 	    margin:10,
 	    responsive:{
 	        0:{
@@ -22,10 +30,11 @@ $(document).ready(function(){
 	});
 	$('.ivents-carousel').owlCarousel({
 	    loop:true,
-	    smartSpeed:1000,
+	    smartSpeed:2000,
 	    dots:false,
+	    autoplayHoverPause:true,
 	    nav:true,
-	    center: true,
+	    // center: true,
 	    margin:10,
 	    navText:["<div class='carousel-control-prev'><img src='static/img/angle-left.png'></div>","<div class='carousel-control-next'><img src='static/img/angle-right.png'></div>"],
 	    autoplay:true,
@@ -35,7 +44,7 @@ $(document).ready(function(){
 	            items:1
 	        },
 	        800:{
-	            items:3
+	            items:2
 	        },
 	        1000:{
 	            nav:true,
@@ -49,9 +58,10 @@ $(document).ready(function(){
 	});
 	$('.team-carousel').owlCarousel({
 	    loop:true,
-	    smartSpeed:1000,
+	    smartSpeed:2000,
 	    dots:false,
 	    nav:true,
+	    autoplayHoverPause:true,
 	    margin:10,
 	    navText:["<div class='carousel-control-prev'><img src='static/img/angle-left.png'></div>","<div class='carousel-control-next'><img src='static/img/angle-right.png'></div>"],
 	    autoplay:true,

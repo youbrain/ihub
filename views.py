@@ -1,7 +1,7 @@
 import os
 
 from app import app, db
-from models import Events
+from models import Events, InstaPosts
 from forms import AddEventForm
 
 from datetime import datetime
@@ -45,6 +45,10 @@ def dashboard():
 
 @app.route('/add_event/', methods=['get', 'post'])
 def add_event():
+    if request.method == 'GET':
+        if not request.cookies.get('session') == 'sucs':
+            return redirect(url_for('login'))
+
     form = AddEventForm()
     if form.validate_on_submit():
         # if f.filename
@@ -81,8 +85,8 @@ def get_file(name):
 
 @app.route('/')
 def index():
-    # ivents = insta_posts.query.all()
-    return render_template('index.html', posts=posts)
+    ivents = InstaPosts.query.all()
+    return render_template('index.html', ivents=ivents)  # , posts=posts
 
 
 @app.route('/calendar/')

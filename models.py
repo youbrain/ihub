@@ -15,10 +15,31 @@ class Events(db.Model):
         return '<Event {}>'.format(self.title)
 
 
-# class InstaPosts(db.Model):
-#     __tablename__ = 'insta_posts'
-#     id = db.Column(db.Integer, primary_key=True)
-        
+class InstaPosts(db.Model):
+    __tablename__ = 'insta_posts'
+    id = db.Column(db.Integer, primary_key=True)
+    post_link = db.Column(db.String())
+    img_link = db.Column(db.String())
+    owner_username = db.Column(db.String())
+    description = db.Column(db.Text())
+    cooments_count = db.Column(db.Text())
+    likes_count = db.Column(db.Text())
+
+    def __repr__(self):
+        return '<InstaPost {}>'.format(self.img_link)
+
+
+db.create_all()
+
+
+# published time
+# owner username
+# description
+# photo link
+# cooments count
+# likes count
+
+
 '''
 class Users(db.Model):
     # Создаем таблицу пользователей
@@ -67,4 +88,3 @@ class Tasks(db.Model):
     def __repr__(self):
         return '<Tasks {}>'.format(self.name)
 '''
-db.create_all()

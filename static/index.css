@@ -41,27 +41,27 @@ todo
 	color: white;
 	background-image: url("img/red.jpg");
 	height: 100vh;
-	width: 100%; 
+	width: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
 #f_screen_logo {
-	padding: 80px 10px 0 10px;
+	padding: 90px 10px 0 90px;
 	position: absolute;
 	width: 650px;
 	max-width: 100%;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -60%);
 }
 
 #first_screen .shape1 {
 	position: absolute;
 	max-width: 100%;
 	left: 0;
-	padding: 20px 100px 0 100px;
+	padding: 10px 100px 0 100px;
 	top: 100px;
 }
 
@@ -132,11 +132,8 @@ todo
 
 
 /*----------------------------------------------------------------- slider події*/
-.slider .photo {
-	border-radius: 5px;
-}
 
-.date, .comments{
+.date, .comments {
 	font-family: 'Montserrat';
 	font-weight: bold;
 	padding-right: 20px
@@ -146,7 +143,28 @@ todo
 	padding-right: 5px
 }
 
+.ivents-carousel .item img {
+	object-fit: cover;
+    width: 100%;
+	height: 300px !important;
+}
 
+.ivents-carousel .item .inst_img {
+	/*width: 300px;*/
+	height: 300px !important;
+}
+
+.ivents-carousel .item a {
+	color: red;
+}
+.ivents-carousel .item a:hover {
+	color: red;
+	opacity: 0.5
+}
+
+.ivents-carousel .item {
+	padding: 0 10px 0 10px;
+}
 
 .carousel-control-next img {
 	position: absolute;
@@ -217,26 +235,42 @@ todo
 	height: 30px !important;
 }
 
-
 .team-carousel .owl-stage .photo {
 	width: 80%;
+	padding-top: 60px;
 	padding-left: 20%;
 }
+.team-carousel .owl-stage {
+	font-size: 14px
+}
 .team-carousel .owl-stage .center .photo {
-	padding-left: 0 !important;
-	width: 100%;
+	/*transition: transform 2s;*/
+	transform: scale(1.3);
+
+	padding-top: 36px;
+	padding-bottom: 35px;
+	/*padding-left: 0 !important;*/
+	/*width: 100%;*/
+}
+.team-carousel .owl-stage .center {
+	font-size: 16px
 }
 
 
 /*----------------------------------------------------------------- team carousel end */
 /*----------------------------------------------------------------- global css */
+html { overflow-x: hidden; }
+
 h2 {
 	text-align: center;
 	font-size: 35px;
 	font-weight: bold;
 }
 section {
-	padding: 40px 0 40px 0;
+	padding: 70px 0 70px 0;
+}
+section h2 {
+	padding-bottom: 20px;
 }
 /*----------------------------------------------------------------- end global css */
 
@@ -267,7 +301,7 @@ section {
 }
 
 #reviews .item {
-	margin: 70px 50px 70px 50px;
+	margin: 70px;
 	padding: 30px;
  	border-radius: 10px;
 	z-index: 1000;
@@ -280,13 +314,14 @@ section {
 }
 #reviews .owl-stage .center {
 	opacity: 1 !important;
-	font-size: 18px
+	/*font-size: 18px*/
+	transform: scale(1.1);
 
 }
 
 .reviews-carousel {
 	/*: 50px 50px 50px 50px;*/
-	padding-right: 20px;
+	/*padding-right: 20px;*/
 	/*position: absolute;*/
 	left: -25%;
 	overflow: hidden !important;
@@ -325,7 +360,7 @@ footer {
 	background-color: #FF0B2E;
     font-family: 'Montserrat', sans-serif;
 
-	padding: 30px 100px 20px 100px;
+	padding: 30px 90px 20px 90px;
 	font-weight: bold;
 	/*height: 150px;*/
 }
@@ -341,6 +376,16 @@ footer .underline a {
 
 
 
+.calendar span {
+	font-weight: lighter;
+	position: absolute;
+	right: 100px;
+	top: 35px
+}
+.calendar img {
+	position: absolute;
+}
+
 /*----------------------------------------------------------------- media */
 
 @media screen and (max-width: 991px) {
@@ -352,10 +397,29 @@ footer .underline a {
 		float: right;
 	}
 	#f_screen_logo {
-		padding: 0 20px 0 20px;
+		padding: 0 40px 0 40px;
+	}
+
+	.calendar span {
+		position: relative;
+		float: right;
+		right: 40px
+	}
+	.calendar img {
+		position: relative;
+		float: right;
+		margin-bottom: 30px;
+		margin-top: 20px;
+		/*margin-right: 35px*/
 	}
 	.shape1, .shape2 {
-		display: none
+		display: none;
+		/*min-width: 150%;*/
+		/*position: relative;*/
+		/*overflow: hidden !important;*/
+		/*padding: 20px 10px 40px 10px !important;/* 10px 20px 10px !important;*/*/
+
+
 	}
 }
 @media screen and (max-width: 800px) {
@@ -364,10 +428,23 @@ footer .underline a {
 		left: 0%;
 	}
 	.reviews-carousel .item {
-		margin: 30px 20px 35px 20px !important;
+		margin: 40px 65px 55px 65px !important;
 	}
 	#reviews {
 		background-size: 150px;
 	}
 }
+@media screen and (max-width: 1129px) {
+	.underline {
+		display: none
+	}
+}
+@media screen and (max-width: 574px) {
+	#reviews .item {
+		margin: 35px !important;
+ 		box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22) !important;
+	}
+}
+
+
 /*----------------------------------------------------------------- end media */

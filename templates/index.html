@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>iHub відкритий коворкінг, IT івенти Хмельницький</title>
+    <link rel="shortcut icon" href="/static/faviction.ico">
+
 
     <script src="https://kit.fontawesome.com/b485297a0d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
@@ -13,7 +15,7 @@
     <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top">
         <a class="navbar-brand" href="#"><img src="static/img/ihub 2.png" height="60"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
@@ -21,22 +23,31 @@
             </span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto"><!-- 
                 <li class="nav-item active">
                     <a class="nav-link mt-3" href="#">Головна</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link mt-3 js-scroll-trigger" href="#events">Події</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-3" href="#">Події</a>
+                    <a class="nav-link mt-3 js-scroll-trigger" href="#team">Команда</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-3" href="#">3D тур</a>
+                    <a class="nav-link mt-3 js-scroll-trigger" href="#reviews">Відгуки</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-3" href="#">Відгуки</a>
-                </li>
+                    <a class="nav-link mt-3 js-scroll-trigger" href="#contacts">Контакты</a>
+                </li><!-- 
                 <li class="nav-item">
-                    <a class="nav-link" href="/calendar"><img src="static/img/calendar.png" height="50"></a>
+                    <a class="nav-link mt-3 js-scroll-trigger" href="#">3D тур</a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="/calendar" class="calendar">
+                        <span></span>
+                        <img src="static/img/calendar.png" height="50">
+                    </a>
                 </li>
             </ul>
 
@@ -47,46 +58,35 @@
         <img class="shape1" src="static/img/Shape2.png">
         <img id="f_screen_logo" src="static/img/ihub 2.png">
         <img class="shape2" src="static/img/Shape1.png">
-        <div class="scroll-down"></div>
+        <a href="#events" class="js-scroll-trigger"></a><div class="scroll-down"></div>
     </section>
 
 
-    <section class="container">
+    <section class="container" id="events">
         <h2 class="pb-3">Події</h2>
 
         <div class="owl-carousel ivents-carousel slider">
-            <div class="item">
-                <img class="photo img-fluid" src="static/img/Image 1.png">
-                <span class="date"><i class="far fa-calendar-alt"></i>1 грудня 2020</span>
-                <span class="comments"><i class="far fa-comment-dots"></i>2 comments</span><br>
-                <span class="text">At vero eos et accusamus etiusto odio dignissimos</h2>
-            </div>
-
-            <div class="item">
-                <img class="photo img-fluid" src="static/img/Image 1.png">
-                <span class="date"><i class="far fa-calendar-alt"></i>2 грудня 2020</span>
-                <span class="comments"><i class="far fa-comment-dots"></i>2 comments</span><br>
-                <span class="text">At vero eos et accusamus etiusto odio dignissimos</h2>
-            </div>
-
-            <div class="item">
-                <img class="photo img-fluid" src="static/img/Image 1.png">
-                <span class="date"><i class="far fa-calendar-alt"></i>3 грудня 2020</span>
-                <span class="comments"><i class="far fa-comment-dots"></i>2 comments</span><br>
-                <span class="text">At vero eos et accusamus etiusto odio dignissimos</h2>
-            </div>
-
-            <div class="item">
-                <img class="photo img-fluid" src="static/img/Image 1.png">
-                <span class="date"><i class="far fa-calendar-alt"></i>4 грудня 2020</span>
-                <span class="comments"><i class="far fa-comment-dots"></i>2 comments</span><br>
-                <span class="text">At vero eos et accusamus etiusto odio dignissimos</h2>
-            </div>
+            {% for item in ivents %}
+                <div class="item">
+                    <a href="{{ item.post_link }}" >
+                        <div class="inst_img">
+                            <img class="rounded" src="{{ item.img_link }}">
+                        </div>
+                    </a>
+                    <!-- <span class="date"><i class="frameborder fa-calendar-alt"></i>1 грудня 2020</span> -->
+                    <span class="comments"><i class="fas fa-heart"></i>{{ item.likes_count }}</span>
+                    <span class="comments"><i class="far fa-comment-dots"></i>{{ item.cooments_count }}</span><br>
+                    <span class="text">{{ item.description[:150] }} . . .</span><br>
+                    <a href="{{ item.post_link }}">Детальніше...</a>
+                </div>
+            {% endfor %}
         </div>
 
-        <div class="row">
-            <div class="col pt-3 text-center">
-                <button type="button" class="btn btn-lg btn-danger text-center">ЗАБРОНЮВАТИ</button>
+        <div class="row pt-3">
+            <div class="col text-center">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdt8J9XniLxsJad03et_n3Ad4vxVxINl4P6UGokKa4licahng/viewform">
+                    <button type="button" class="btn btn-lg btn-danger text-center">ЗАБРОНЮВАТИ</button>
+                </a>
             </div>
         </div>  
     </section>
@@ -118,8 +118,8 @@
         </div>
     </section>
 
-    <section class="container">
-        <h2 class="pb-3">Команда IHUB</h2>
+    <section class="container" id="team">
+        <h2>Команда IHUB</h2>
         <div class="owl-carousel team-carousel">
             <div class="item">
                 <div class="team-part">
@@ -199,13 +199,13 @@
         </div>
     </section>
 
-    <section class="container-fluid pt-6" id="reviews">
+    <section class="container-fluid" id="reviews">
         <div class="row">
-            <div class="col pt-3 text-center">
+            <div class="col pb-3 text-center">
                 <button type="button" class="btn btn-lg btn-danger text-center">ВІДГУКИ</button>
             </div>
         </div>  
-        <h2 class="pt-3">what my client saying</h2>
+        <h2>Відгуки</h2>
         <div class="reviews-carousel owl-carousel owl-theme">
             <div class="item">
                 <div class="pb-2">
@@ -278,7 +278,7 @@
 
     <section class="container" id="contacts">
         <h2>Контакты</h2>
-        <div class="row pt-4">
+        <div class="row">
             <div class="col-md-5">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d385.699840736093!2d26.982780365298353!3d49.43407324696185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4732077fc304a1cb%3A0xfd0f3eee6444fd31!2siHUB%20Khm!5e0!3m2!1sru!2sua!4v1608129142361!5m2!1sru!2sua" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
@@ -315,32 +315,33 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-lg btn-light mx-auto d-block text-danger">ЗАБРОНЮВАТИ</button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdt8J9XniLxsJad03et_n3Ad4vxVxINl4P6UGokKa4licahng/viewform">
+                    <button type="button" class="btn btn-lg btn-light mx-auto d-block text-danger">
+                        ЗАБРОНЮВАТИ
+                    </button>
+                </a>
             </div>
         </div>
     </section>
 
     <footer class="text-light">
-        <div class="row">
-            <div class="col">
+        <div class="row text-center">
+            <div class="col-sm pt-4">
                 <img src="static/img/ihub 1.png" height="60">
             </div>
-            <div class="col pt-5 underline">
-                <a href="#">Головна</a>
+            <div class="col-sm mt-5 underline">
+                <a href="#events" class="js-scroll-trigger">Події</a>
             </div>
-            <div class="col pt-5 underline">
-                <a href="#">3D тур</a>
+            <div class="col-sm mt-5 underline">
+                <a href="#team" class="js-scroll-trigger">Команда</a>
             </div>
-            <div class="col pt-5 underline">
-                <a href="#">Заходи</a>
+            <div class="col-sm mt-5 underline">
+                <a href="#reviews" class="js-scroll-trigger">Відгуки</a>
             </div>
-            <div class="col pt-5 underline">
-                <a href="#">Відгуки</a>
+            <div class="col-sm mt-5 underline">
+                <a href="#contacts" class="js-scroll-trigger">Контакты</a>
             </div>
-            <div class="col pt-5 underline">
-                <a href="#">Контакти</a>
-            </div>
-            <div class="col pt-5 social">
+            <div class="col-sm mt-5 social d-inline">
                 <a href="#">
                     <img src="static/img/Facebook.png" height="30">
                 </a>
@@ -360,8 +361,11 @@
 
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script src="static/js/owl.carousel.min.js"></script>
+    <script src="static/js/jquery.easing.min.js"></script>
 
     <script src="static/js/bootstrap.min.js"></script>
     <script src="static/index.js"></script>
+    <script src="static/js/script.js"></script>
+
 </body>
 </html>
