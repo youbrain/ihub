@@ -10,32 +10,25 @@
         <link rel="stylesheet" href="/static/calendar.css">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="/" class="navbar-brand"><img src="/static/img/ihub-red.png" height="60"></a>
-            <h2>Календар подій</h2>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">
-                    <!-- <i class="fa fa-navicon"></i> -->
-                </span>
-            </button>
-
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item month_nav">
-                        <div>
-                            <a><img class="section__img" src="/static/img/angle-left.png" width="6"></a>
-                            <h5 id="date"></h5>
-                            <a><img class="section__img" src="/static/img/angle-right.png" width="6"></a>
-                        </div>
-                    </li>
-                </ul>
-
+        <section class="container pt-4">
+            <div class="row">
+                <div class="col-md text-center">
+                    <a href="/"><img src="/static/img/ihub-red.png" height="60"></a>
+                </div>
+                <div class="col-md text-center text-nowrap">
+                    <h1>Календар подій</h1>
+                </div>
+                <div class="col-md text-center month_nav text-nowrap">
+                    <div>
+                        <a><img class="section__img" src="/static/img/angle-left.png" width="6"></a>
+                        <h5 id="date"></h5>
+                        <a><img class="section__img" src="/static/img/angle-right.png" width="6"></a>
+                    </div>
+                </div>
             </div>
-        </nav>
+        </section>
 
-
-        <div class="table">
+        <section class="container-fluid table pt-4">
             <table>
                 <tr>
                     <th>Понеділок</th>
@@ -103,13 +96,13 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-        
-        <div class="col text-center">
+        </section>
+
+        <section class="text-center pt-4 pb-4">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdt8J9XniLxsJad03et_n3Ad4vxVxINl4P6UGokKa4licahng/viewform">
-                <button type="button" class="btn btn-lg btn-danger text-center">ЗАБРОНЮВАТИ</button>
+                <button type="button" class="btn btn-lg btn-danger">ЗАБРОНЮВАТИ</button>
             </a>
-        </div>
+        </section>
 
         <div id="alert">
             <div class="block">
@@ -123,23 +116,15 @@
                 <div class="cost"></div>
                 <div class="when">
                     <h5><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="eaec-popup-time-icon"><path d="M6 12A6 6 0 1 0 6 0a6 6 0 0 0 0 12zm.984-4.97a.454.454 0 0 1-.07.154l-.026.038a.5.5 0 0 1-.655.148L3.55 5.857a.454.454 0 0 1-.149-.655.551.551 0 0 1 .722-.164l1.877 1.059V2.9a.5.5 0 1 1 1 0v4a.5.5 0 0 1-.017.13z"></path></svg>КОЛИ</h5>
-                    <span>December 24 01:20 AM</span>
                 </div>
                 <div class="share">
-                    <h5><svg class="eaec-share-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path d="M1.002 8.997L1 9l.003-.046c.015-1.028.116-2.338.8-3.484.955-1.57 1.96-2.422 4.672-2.512v-1.66c0-.09.1-.224.2-.269.101-.044.252-.044.352.045l4.923 3.544c.05.09.05.134.05.224s0 .18-.1.224L6.977 8.654c-.1.09-.251.09-.351.045-.1-.045-.201-.134-.201-.269V6.815c-2.01 0-2.914.135-4.772 3.05-.05.09-.2.135-.301.135h-.1A.342.342 0 0 1 1 9.686v-.224c0-.147 0-.302.002-.465z"></path></svg>ПОДІЛИТИСЯ</h5>
                     <button onclick="copy(location.href)"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="eaec-share-link-icon" d="M4.395 9.52l-.607.604a1.359 1.359 0 0 1-1.909 0 1.313 1.313 0 0 1-.392-.939c0-.354.14-.688.392-.939L4.114 6.03c.463-.46 1.334-1.136 1.97-.506A.743.743 0 1 0 7.13 4.468c-1.08-1.071-2.675-.873-4.064.506L.83 7.19A2.79 2.79 0 0 0 0 9.185c0 .754.295 1.462.832 1.994A2.833 2.833 0 0 0 2.833 12c.725 0 1.45-.274 2.002-.821l.608-.604a.743.743 0 1 0-1.048-1.054zM11.168.908c-1.16-1.15-2.78-1.213-3.854-.148l-.757.751a.743.743 0 1 0 1.048 1.055l.757-.75c.556-.553 1.284-.324 1.759.147.253.251.392.585.392.939s-.14.688-.392.939L7.736 6.205c-1.09 1.082-1.601.574-1.82.358A.744.744 0 0 0 4.87 7.618c.5.497 1.071.743 1.67.743.734 0 1.508-.37 2.245-1.1l2.384-2.366c.537-.533.832-1.24.832-1.994s-.296-1.462-.832-1.994z"></path></svg>Копіювати Посилання</button>
                 </div>
             </div>
         </div>
         <input id="link" style="opacity: 0; position: absolute; bottom: 100%;" />
-
-        <script src="https://code.jquery.com/jquery-latest.js"></script>
-
-        <script src="/static/js/bootstrap.min.js"></script>
-
-
-
         <script src="/static/events.js"></script>
+
         <script type="text/javascript">
             {% for item in ivents %}
                 new Event("{{ item.time.strftime('%d-%m-%Y %H:%M')}}", "{{ item.title }}", "{{ item.title }}", "{{ item.title }}", 0, `{{ item.description }}`, "/{{ item.img_path }}");

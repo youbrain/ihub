@@ -18,7 +18,7 @@ function setSelection() {
     document.getElementById("date").innerHTML = `${month} ${year}`;
 
 
-    let a = document.querySelectorAll("div.section a");
+    let a = document.querySelectorAll("div.month_nav a");
     let d = new Date(date.getTime());
     d.setMonth(d.getMonth() - 1);
     a[0].setAttribute("href", `?t=${d.getMonth()}${d.getFullYear()}`);
@@ -27,8 +27,11 @@ function setSelection() {
 
     if (date.getMonth() != (new Date).getMonth() || date.getFullYear() != (new Date).getFullYear()) {
         let today = document.createElement("a");
-        today.innerHTML = `<a href="?t=${(new Date).getMonth()}${(new Date).getFullYear()}"><button class="today">Сьогодні</button></a>`;
-        document.querySelector("div.section").append(today);
+        today.innerHTML = `<br>
+            <a href="?t=${(new Date).getMonth()}${(new Date).getFullYear()}" class="today_btn">
+                <button type="button" class="btn btn-danger btn-sm">Сьогодні</button>
+            </a>`;
+        document.querySelector("div.month_nav>div").append(today);
     }
 }
 setSelection();
@@ -83,9 +86,9 @@ function addEvents(events) {
         $(".description p").innerHTML = event.description;
         $(".description").classList.remove("show");
         
-        $(".cost").innerHTML = `<span>${event.cost || "$ ВАРТІСТЬ:"}</span>: Безкоштовно`;
+        // $(".cost").innerHTML = `<span>${event.cost || "$ ВАРТІСТЬ:"}</span>: Безкоштовно`;
         
-        $(".when span").innerHTML = `${day[event.getDay()]} ${event.getStrTime()}`
+        $(".when h5").innerHTML = `${day[event.getDay()]} ${event.getStrTime()}`
     }
     function addEvent(elem, event, i) {
         if (!elem) return;
