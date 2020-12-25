@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Додати івент</title>
 
     <link rel="shortcut icon" href="/static/faviction.ico">
@@ -86,6 +87,16 @@
 		    </div>
 		</form>
 	</section>
+
+    <section class="container">
+        <h2 class="text-center">Видалити подію</h2>
+        {% for btn in ivents %}
+            <a href="/del_event/{{btn.id}}">
+                <button type="button" class="btn btn-lg btn-danger text-center mt-4">Видалити: {{ btn.title }}</button>
+            </a>
+            <br>
+        {% endfor %}
+    </section>
     
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
