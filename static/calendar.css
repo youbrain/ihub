@@ -42,7 +42,7 @@ td.other {
 td#today {
     background-color: rgba(255, 0, 0, 0.2);
     /*color: black;*/
-    /*border: 3px solid var(--color);*/
+    border: 3px solid red;
 }
 
 th {
@@ -313,4 +313,8 @@ th {
 
 .img__items {
     width: 250px;
+}
+
+.nav_logo:hover {
+    opacity: 0.8
 }

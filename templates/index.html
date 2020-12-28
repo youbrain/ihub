@@ -68,7 +68,7 @@
         <div class="owl-carousel ivents-carousel slider">
             {% for item in ivents %}
                 <div class="item">
-                    <a href="{{ item.post_link }}" >
+                    <a href="{{ item.post_link }}" target="_blank" rel="noopener noreferrer">
                         <div class="inst_img">
                             <img class="rounded" src="{{ item.img_link }}">
                         </div>
@@ -77,7 +77,7 @@
                     <span class="comments"><i class="fas fa-heart"></i>{{ item.likes_count }}</span>
                     <span class="comments"><i class="far fa-comment-dots"></i>{{ item.cooments_count }}</span><br>
                     <span class="text">{{ item.description[:150] }} . . .</span><br>
-                    <a href="{{ item.post_link }}">Детальніше...</a>
+                    <a href="{{ item.post_link }}" target="_blank" rel="noopener noreferrer">Детальніше...</a>
                 </div>
             {% endfor %}
         </div>
@@ -93,28 +93,28 @@
 
     <section class="container" id="partners">
         <div id="partners_slider">
-            <img src="static/img/logo-rect-white-160.png" height="50">
-            <img src="static/img/Presto.png" height="90">
-            <img src="static/img/stfalcon.png" height="90">
-            <img src="static/img/Слой 3.png" height="90">
-            <img src="static/img/Слой 4.png" height="90">
-            <img src="static/img/Слой 5.png" height="90">
-            <img src="static/img/Слой 6.png" height="90">
-            <img src="static/img/Слой 7.png" height="90">
-            <img src="static/img/Слой 8.png" height="90">
-            <img src="static/img/Слой 9.png" height="90">
             <img src="static/img/Слой 2.png" height="90">
             <img src="static/img/logo-rect-white-160.png" height="50">
-            <img src="static/img/Presto.png" height="90">
             <img src="static/img/stfalcon.png" height="90">
-            <img src="static/img/Слой 3.png" height="90">
+            <img src="static/img/Presto.png" height="90">
             <img src="static/img/Слой 4.png" height="90">
             <img src="static/img/Слой 5.png" height="90">
-            <img src="static/img/Слой 6.png" height="90">
-            <img src="static/img/Слой 7.png" height="90">
             <img src="static/img/Слой 8.png" height="90">
+            <img src="static/img/Слой 3.png" height="90">
             <img src="static/img/Слой 9.png" height="90">
+            <img src="static/img/Слой 7.png" height="90">
+            <img src="static/img/Слой 6.png" height="90">
             <img src="static/img/Слой 2.png" height="90">
+            <img src="static/img/logo-rect-white-160.png" height="50">
+            <img src="static/img/stfalcon.png" height="90">
+            <img src="static/img/Presto.png" height="90">
+            <img src="static/img/Слой 4.png" height="90">
+            <img src="static/img/Слой 5.png" height="90">
+            <img src="static/img/Слой 8.png" height="90">
+            <img src="static/img/Слой 3.png" height="90">
+            <img src="static/img/Слой 9.png" height="90">
+            <img src="static/img/Слой 7.png" height="90">
+            <img src="static/img/Слой 6.png" height="90">
         </div>
     </section>
 
@@ -205,7 +205,7 @@
                 <button type="button" class="btn btn-lg btn-danger text-center">ВІДГУКИ</button>
             </div>
         </div>  
-        <h2>Відгуки</h2>
+        <h2>What our client saying</h2>
         <div class="reviews-carousel owl-carousel owl-theme">
             <div class="item">
                 <div class="pb-2">
@@ -288,14 +288,14 @@
                     <div class="col">
                         <div class="block">
                             <b>Наша адреса</b><br>
-                            <span>Монтблан</span>
+                            <span>ТЦ Монблан</span>
                             <br>
                             <span>Хмель</span>
                         </div>
                         <div class="block">
                             <b>Соціальні мережі</b>
                             <br>
-                            <span>instagram</span>
+                            <span>Instagram</span>
                             <br>
                             <span>Facebook</span>
                         </div>
@@ -306,12 +306,12 @@
                             <br>
                             <span>Вт-Пт 10:00-18:00</span>
                             <br>
-                            <span>Вт-Пт 10:00-18:00</span>
+                            <span>Нд-Пн Вихідний</span>
                         </div>
                         <div class="block">
-                            <b>Звязок</b></span>
+                            <b>Зв'язок</b></span>
                             <br>
-                            <span>Тел. +38 050 696 23 73</span>
+                            <span>Тел. +38 063 587 99 66</span>
                         </div>
                     </div>
                 </div>
@@ -342,14 +342,14 @@
                 <a href="#contacts" class="js-scroll-trigger">Контакти</a>
             </div>
             <div class="col-sm mt-5 social d-inline">
-                <a href="#">
-                    <img src="static/img/Facebook.png" height="30">
+                <a href="https://www.facebook.com/vadym.babiy">
+                    <img src="static/img/Facebook.png" height="30" class="pr-2">
                 </a>
-                <a href="#">
+                <a href="https://www.instagram.com/vadym_babiy_ileyes/">
+                    <img src="static/img/Instagram.png" height="30" class="pr-2">
+                </a>
+                <a href="https://t.me/ihub_khm">
                     <img src="static/img/telegram.png" height="30">
-                </a>
-                <a href="#">
-                    <img src="static/img/Twitter.png" height="30">
                 </a>
             </div>
         </div>

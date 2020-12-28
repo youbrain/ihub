@@ -9,6 +9,8 @@ $(document).ready(function(){
 	    center:true,
 	    items:6,
 	    autoplayHoverPause:true,
+	    smartSpeed:3000,
+	    autoplay:true,
 	    dots:true,
 	    loop:true,
 	    // animateOut: 'fadeOut',
@@ -30,7 +32,7 @@ $(document).ready(function(){
 	});
 	$('.ivents-carousel').owlCarousel({
 	    loop:true,
-	    smartSpeed:2000,
+	    smartSpeed:3000,
 	    dots:false,
 	    autoplayHoverPause:true,
 	    nav:true,
@@ -58,13 +60,13 @@ $(document).ready(function(){
 	});
 	$('.team-carousel').owlCarousel({
 	    loop:true,
-	    smartSpeed:2000,
+	    // smartSpeed:2000,
 	    dots:false,
 	    nav:true,
 	    autoplayHoverPause:true,
 	    margin:10,
 	    navText:["<div class='carousel-control-prev'><img src='static/img/angle-left.png'></div>","<div class='carousel-control-next'><img src='static/img/angle-right.png'></div>"],
-	    autoplay:true,
+	    // autoplay:true,
 	    responsive:{
 	        0:{
 	            nav:false,

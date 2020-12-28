@@ -11,13 +11,15 @@
 
 .nav-item a {
 	font-weight: 600;
-	color: #efc5c8;
+	color: white !important;
+	opacity: 0.5;
 	font-size: 20px;
 	margin-right: 35px
 }
 
 .nav-item a:hover {
-	color: white;
+	color: white !important;
+	opacity: 1 !important;
 }
 /*
 .fa.fa-navicon {
