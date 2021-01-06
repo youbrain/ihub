@@ -3,7 +3,7 @@ $(document).ready(function(){
 	document.querySelector("a.calendar span").innerHTML = (date + []).length == 1 ? `0${date}` : date;
 
 	let year = (new Date()).getFullYear();
-	if (+year > 2020) document.querySelector(".footer__2020").innerHTML = `2020-${year}`;
+	if (+year > 2021) document.querySelector(".footer__2020").innerHTML = `2021-${year}`;
 	
 	$('.reviews-carousel').owlCarousel({
 	    center:true,
