@@ -2,7 +2,7 @@ import requests
 import json
 
 
-cookies = {
+cookiess = {
     "ig_did": "58971998-1837-4A06-B2DA-2DBEAB6B2250",
     "mid": "XrujiAALAAHHAKk-gpcHvE3x4TMV",
     "ds_user_id": "5961078248",
@@ -41,14 +41,14 @@ if __name__ == '__main__':
 
     for post in posts:
 
-    print(
-        'https://www.instagram.com/p/' +
-        posts[0]['node']['shortcode'],      # link
-        posts[0]['node']['taken_at_timestamp'],  # published time
-        posts[0]['node']['owner']['username'],  # owner username
-        # description
-        posts[0]['node']['edge_media_to_caption']['edges'][0]['node']['text'],
-        posts[0]['node']['display_url'],  # photo link
-        posts[0]['node']['edge_media_to_comment']['count'],  # cooments count
-        posts[0]['node']['edge_liked_by']['count'],  # likes count
-    )
+        print(
+            'https://www.instagram.com/p/' +
+            posts[0]['node']['shortcode'],      # link
+            posts[0]['node']['taken_at_timestamp'],  # published time
+            posts[0]['node']['owner']['username'],  # owner username
+            # description
+            posts[0]['node']['edge_media_to_caption']['edges'][0]['node']['text'],
+            posts[0]['node']['display_url'],  # photo link
+            posts[0]['node']['edge_media_to_comment']['count'],  # cooments count
+            posts[0]['node']['edge_liked_by']['count'],  # likes count
+        )

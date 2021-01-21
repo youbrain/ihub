@@ -1,0 +1,62 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Instagram Посты{% endblock %}
+
+{% block content %}
+	<style type="text/css">	
+		.post .inst_img {
+			/*width: 300px;*/
+			width: 300px !important;
+			height: 300px !important;
+		}
+
+		.post img {
+			width: 300px !important;
+			height: 300px !important;
+			/*object-fit: cover;*/
+			/*height: 100%;*/
+		}
+
+		.post .date, .comments {
+			font-family: 'Montserrat';
+			font-weight: bold;
+			padding-right: 20px
+		}
+	</style>
+
+
+	<section class="container pt-4 pb-4">
+		<h1>Instagram публікації</h1>
+	</section>
+
+    <section class="container pt-4 pb-4">	
+        <h2>Оновити інформацію</h2>
+    	<a href="/scrape_insta">
+            <button type="button" class="btn btn-lg btn-danger text-center mt-4">Оновити</button>
+        </a>
+    </section>
+
+    <section class="container pt-4">	
+        <h2>Видалити публікацію</h2>
+
+	    {% for post in posts %}
+	    	<div class="post pt-4 pb-4 row">
+	    		<div class="col-lg-4">
+	                <a href="{{ post.post_link }}" target="_blank" rel="noopener noreferrer">
+	                    <div class="inst_img d-inline-block">
+	                        <img class="rounded" src="{{ post.img_link }}">
+	                    </div>
+	                </a>
+            	</div>
+                <div class="col-lg">
+	                <span class="comments"><i class="fas fa-heart"></i>{{ post.likes_count }}</span>
+	                <span class="comments"><i class="far fa-comment-dots"></i>{{ post.cooments_count }}</span><br>
+	                <span class="text">{{ post.description[:150] }} . . .</span><br>
+			    	<a href="/del_inst_post/{{ post.id }}">
+			            <button type="button" class="btn btn-danger text-center mt-4">Видалити</button>
+			        </a>
+	    		</div>
+	    	</div>
+	    {% endfor %}
+
+{% endblock %}

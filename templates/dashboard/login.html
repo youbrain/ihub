@@ -8,48 +8,51 @@
     <link rel="shortcut icon" href="/static/faviction.ico">
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <style type="text/css">
-		#first_screen {
-			/*position: relative;*/
-			text-align: center;
-			/*color: white;*/
+		body {
 			background-image: url("/static/img/red.jpg");
 			height: 100vh;
 			width: 100%;
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: cover;
+			z-index: 1; 
 		}
 		form {
-			top: 33%;
-			display: inline;
-			padding: 30px;
-			background-color: white;
-			border-radius: 10px; 
-			position: absolute;
+			
+			/*top: 50vh;*/
+			/*position: relative;*/
 
-			/*left: -130px;*/
+			/*display: inline-block;*/
+  			/*vertical-align: middle;*/
+			border-radius: 10px;
+			padding: 20px;
+			background-color: white;
+			/*position: absolute;*/
+			z-index: 2;
+			/*display: inline;*/
+			/*width: 200px*/
 		}
     </style>
 </head>
 <body>
 	<section id="first_screen">
-		<form action="" method="post" class="text-center">
-			<div class="d-flex justify-content-center">
-			    {% if message %}
-			        <div class="alert alert-danger " role="alert">{{ message }}</div>
-			    {% endif %}</div>
-			    <div class="form-group">
-				    <label for="username">Username</label>
-				    <input type="text" name="username" class="form-control">
-			    </div>
-			    <div class="form-group">
-				    <label for="password">Password</label>
-				    <input type="password" name="password" class="form-control">
-			    </div>
-			    <button type="submit" class="btn btn-danger text-center">Ввійти</button>
-			</div>
-		</form>
 	</section>
+	<form action="" method="post" class="text-center">
+		<div class="d-flex justify-content-center">
+		    {% if message %}
+		        <div class="alert alert-danger " role="alert">{{ message }}</div>
+		    {% endif %}</div>
+		    <div class="form-group">
+			    <label for="username">Username</label>
+			    <input type="text" name="username" class="form-control">
+		    </div>
+		    <div class="form-group">
+			    <label for="password">Password</label>
+			    <input type="password" name="password" class="form-control">
+		    </div>
+		    <button type="submit" class="btn btn-danger text-center">Ввійти</button>
+		</div>
+	</form>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
 </body>

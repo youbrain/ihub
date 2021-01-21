@@ -5,12 +5,14 @@ from models import Events, InstaPosts
 from forms import AddEventForm
 
 from datetime import datetime
-from sqlalchemy import extract
+from sqlalchemy import extract, insert
 from sqlalchemy.sql import select
 from werkzeug.utils import secure_filename
 from flask import (Flask, request, render_template,
                    redirect, url_for, make_response,
                    send_file)
+
+from scrapper.insta import *
 
 
 @app.route('/login/', methods=['post', 'get'])
@@ -59,7 +61,8 @@ def add_event():
             # if f.filename
             f = form.photo.data
             filename = secure_filename(f.filename)
-            f.save('/root/ihub/uploads/' + filename) # 'uploads/' + filename)  # 
+            # 'uploads/' + filename)  #
+            f.save('/root/ihub/uploads/' + filename)
             # date = [int(a) for a in form.time.data.split('-')][-1]
             query = Events(
                 type=form.type.data,
@@ -111,13 +114,62 @@ def del_event(event):
     return redirect(url_for('add_event'))
 
 
-@app.route('/')
+@app.route('/inst/')
+def inst():
+    if not request.cookies.get('session_') == 'sucs':
+        return redirect(url_for('login'))
+
+    inst_posts = InstaPosts.query.all()
+    return render_template('dashboard/insta.html', posts=inst_posts)
+
+
+@app.route('/scrape_insta/')
+def scrape_insta():
+    if not request.cookies.get('session_') == 'sucs':
+        return redirect(url_for('login'))
+
+    parser = InstaParser(cookiess)
+    hub_id = parser.get_profil_id('ihub_khm')
+    posts = parser.get_tagged_posts(hub_id)
+    for post in posts:
+        query = InstaPosts(
+            post_link='https://www.instagram.com/p/' +
+            post['node']['shortcode'],      # link
+            # post['node']['taken_at_timestamp'],  # published time
+            # owner username
+            owner_username=post['node']['owner']['username'],
+            # description
+            description=post['node']['edge_media_to_caption']['edges'][0]['node']['text'],
+            img_link=post['node']['display_url'],  # photo link
+            # cooments count
+            cooments_count=post['node']['edge_media_to_comment']['count'],
+            # likes count
+            likes_count=post['node']['edge_liked_by']['count'],
+        )
+        db.session.add(query)
+        db.session.commit()
+
+    return redirect(url_for('inst'))
+
+
+@ app.route('/del_inst_post/<post>')
+def del_inst_post(post):
+    if not request.cookies.get('session_') == 'sucs':
+        return redirect(url_for('login'))
+
+    db.session.query(InstaPosts).filter(InstaPosts.id == int(post)).delete()
+    db.session.commit()
+
+    return redirect(url_for('inst'))
+
+
+@ app.route('/')
 def index():
     ivents = InstaPosts.query.all()
     return render_template('index.html', ivents=ivents)  # , posts=posts
 
 
-@app.route('/calendar/')
+@ app.route('/calendar/')
 def calendar():
     # currwnt_month = datetime.now().strftime("%m")
     # conn = engine.connect()
@@ -126,6 +178,7 @@ def calendar():
     ivents = Events.query.all()
 
     return render_template('calendar.html', ivents=ivents)
+
 
 
 # if __name__ == '__main__':
