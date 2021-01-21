@@ -7,10 +7,10 @@ $(document).ready(function(){
 	
 	$('.reviews-carousel').owlCarousel({
 	    center:true,
-	    items:6,
-	    autoplayHoverPause:true,
-	    smartSpeed:3000,
-	    autoplay:true,
+	    items:4,
+	    // autoplayHoverPause:true,
+	    smartSpeed:200,
+	    // autoplay:true,
 	    dots:true,
 	    loop:true,
 	    // animateOut: 'fadeOut',
@@ -32,7 +32,7 @@ $(document).ready(function(){
 	});
 	$('.ivents-carousel').owlCarousel({
 	    loop:true,
-	    smartSpeed:3000,
+	    // smartSpeed:3000,
 	    dots:false,
 	    autoplayHoverPause:true,
 	    nav:true,
