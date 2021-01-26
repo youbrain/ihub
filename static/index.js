@@ -22,8 +22,8 @@ $(document).ready(function(){
 	        800:{
 	            items:2
 	        },
-	        1000:{
-	            items:3
+	        1064:{
+	            items:2
 	        },
 	        1500:{
 	            items:3
