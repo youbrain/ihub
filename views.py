@@ -62,8 +62,12 @@ def add_event():
             f = form.photo.data
             filename = secure_filename(f.filename)
             # 'uploads/' + filename)  #
-            f.save('/root/ihub/uploads/' + filename)
-            # date = [int(a) for a in form.time.data.split('-')][-1]
+            try:
+                f.save('/root/ihub/uploads/' + filename)
+            except FileNotFoundError:
+                f.save('uploads/' + filename)
+
+                # date = [int(a) for a in form.time.data.split('-')][-1]
             query = Events(
                 type=form.type.data,
                 img_path='uploads/' + filename,
@@ -75,7 +79,12 @@ def add_event():
             db.session.add(query)
             db.session.commit()
 
-            return render_template('dashboard/add_event.html', form=form, message=[1, 'Подія додана!'], ivents=ivents)
+            ivents = Events.query.all()
+
+            print(request.args)
+
+            return redirect(url_for('add_event'))
+            # return render_template('dashboard/add_event.html', form=form, message=[1, 'Подія додана!'], ivents=ivents)
             # except:
             #     return render_template('dashboard/add_event.html', form=form, message=[0, 'Помилка'])
 
