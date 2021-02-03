@@ -112,6 +112,11 @@ def get_file(name):
     return send_file('uploads/' + name, mimetype='image')
 
 
+@app.route('/static/img/<name>')
+def get_static_file(name):
+    return send_file('static/img/' + name, mimetype='image')
+
+
 @app.route('/del_event/<event>')
 def del_event(event):
     if not request.cookies.get('session_') == 'sucs':
