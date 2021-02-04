@@ -86,7 +86,7 @@ function addEvents(events) {
         $(".description p").innerHTML = event.description;
         $(".description").classList.remove("show");
         
-        // $(".cost").innerHTML = `<span>${event.cost || "$ ВАРТІСТЬ:"}</span>: Безкоштовно`;
+        $(".cost").innerHTML = `<span>${event.cost || "$ ВАРТІСТЬ:"}</span>: Безкоштовно`;
         
         $(".when h5").innerHTML = `${day[event.getDay()]} ${event.getStrTime()}`
     }
