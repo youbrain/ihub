@@ -4,6 +4,7 @@
     margin-right: 5px;
     /*float: right;*/
 }
+
 .month_nav div {
     padding-top: 10px;
     /*float: right;*/
@@ -136,7 +137,7 @@ td .event .time {
 }
 #alert .description {
     position: relative;
-    margin: 0px 50px;
+    margin: 50px 50px;
     font-size: 14px;
 }
 #alert .description p {

@@ -310,6 +310,14 @@ section h2 {
 
 
 
+.link_block a {
+    color: white !important;
+}
+
+.link_block a:hover {
+    opacity: 0.8 !important;
+}
+
 
 
 @keyframes scroll {
